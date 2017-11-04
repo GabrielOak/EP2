@@ -1,18 +1,18 @@
 package model;
 
 public class Tensao extends Calculo{
-	int v;
+	int tensao;
 	
 	public Tensao(){
 		
 	}
 	
-	public int getV() {
-		return v;
+	public int getTensao() {
+		return tensao;
 	}
 	
-	public void setV(int v) {
-		this.v = v;
+	public void setTensao(int tensao) {
+		this.tensao = tensao;
 	}
 	
 	public float calcular(int t, int at) {

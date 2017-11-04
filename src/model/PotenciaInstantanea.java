@@ -2,14 +2,17 @@ package model;
 
 public class PotenciaInstantanea extends Calculo{
 	
-	float p;
+	float potenciaInstantanea;
 	
-	public PotenciaInstantanea(int t, int v){
-		p = v * t;
+	public PotenciaInstantanea(){
+		Corrente corrente = new Corrente();
+		Tensao tensao = new Tensao();
+		
+		potenciaInstantanea = corrente.getCorrente() * tensao.getTensao();
 	}
 	
 	public float getP() {
-		return p;
+		return potenciaInstantanea;
 	}
 	
 	public float calcular(int t, int at) {

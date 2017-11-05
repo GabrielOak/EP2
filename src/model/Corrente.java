@@ -1,21 +1,17 @@
 package model;
 
-public class Corrente extends Calculo{
+public class Corrente {
 	int corrente;
 	
-	public Corrente(){
-
+	public Corrente() {
+		
 	}
 	
 	public int getCorrente() {
 		return corrente;
 	}
+	
 	public void setCorrente(int corrente) {
 		this.corrente = corrente;
 	}
-	
-	public float calcular(int t, int at){
-		return t * at;
-	}
-	
 }

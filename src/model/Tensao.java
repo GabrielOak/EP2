@@ -1,6 +1,6 @@
 package model;
 
-public class Tensao extends Calculo{
+public class Tensao {
 	int tensao;
 	
 	public Tensao(){
@@ -14,9 +14,4 @@ public class Tensao extends Calculo{
 	public void setTensao(int tensao) {
 		this.tensao = tensao;
 	}
-	
-	public float calcular(int t, int at) {
-		return at * t;
-	}
-	
 }

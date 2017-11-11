@@ -14,7 +14,7 @@ public class FormaOndaCorrente extends FormaOnda{
 	public void calculaFormaOndaCorrente(int valorCorrente, float frequenciaAngular, int anguloFaseCorrente) {
 		
 		for (int t =0; t<10; t++) {
-			listaFormaOndaCorrente.add(valorCorrente * Math.cos(frequenciaAngular * t * anguloFaseCorrente));
+			listaFormaOndaCorrente.add(valorCorrente * Math.cos(Math.toRadians(frequenciaAngular * t * anguloFaseCorrente)));
 		}
 	}
 	public void passarListaCorrente(ArrayList<Double> lista) {

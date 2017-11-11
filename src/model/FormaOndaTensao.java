@@ -16,7 +16,7 @@ public class FormaOndaTensao extends FormaOnda{
 		
 		for(int t=0; t<10; t++) {
 			
-			listaFormaOndaTensao.add(valorTensao * Math.cos(frequenciaAngular * t * anguloTensao));
+			listaFormaOndaTensao.add(valorTensao * Math.cos(Math.toRadians(frequenciaAngular * t * anguloTensao)));
 		}
 	}
 	

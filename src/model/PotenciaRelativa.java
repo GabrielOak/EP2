@@ -2,7 +2,7 @@ package model;
 
 public class PotenciaRelativa extends Potencia{
 
-	double potenciaRelativa;
+	double potenciaRelativa = 0;
 	
 	public PotenciaRelativa() {
 		
@@ -10,7 +10,7 @@ public class PotenciaRelativa extends Potencia{
 	
 	public PotenciaRelativa(int tensao, int corrente, int anguloFaseTensao, int anguloFaseCorrente) {
 		
-		potenciaRelativa = tensao * corrente * Math.cos(anguloFaseTensao-anguloFaseCorrente);
+		potenciaRelativa = (float) tensao * corrente * (Math.sin(Math.toRadians(anguloFaseTensao-anguloFaseCorrente)));
 	}
 	
 	public double getPotenciaRelativa() {

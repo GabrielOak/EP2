@@ -1,7 +1,8 @@
 package model;
 
 public class PotenciaAtiva extends Potencia{
-	double potenciaAtiva;
+	
+	double potenciaAtiva = 0;
 	
 	public PotenciaAtiva(){
 		
@@ -9,7 +10,7 @@ public class PotenciaAtiva extends Potencia{
 	
 	public PotenciaAtiva(int tensao, int corrente, int anguloFaseTensao, int anguloFaseCorrente) {
 		
-		potenciaAtiva = (corrente * tensao) * Math.cos(anguloFaseCorrente-anguloFaseCorrente);
+		potenciaAtiva = (float) corrente * tensao * (Math.cos(Math.toRadians(anguloFaseTensao-anguloFaseCorrente)));
 	}
 	
 	public double getPotenciaAtiva() {

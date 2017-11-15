@@ -98,8 +98,8 @@ public class InterfacePotenciaFundamental {
 	private void preparaPainel() {
 		
 		//Tensão
-		labelTensao = new JLabel("Tensão");
-		labelAngTensao = new JLabel("Angulo Fase");
+		labelTensao = new JLabel("Tensão:");
+		labelAngTensao = new JLabel("Angulo Fase:");
 		textTensao = new JTextField();
 		textAnguloTensao = new JTextField();
 		JButton okTensao = new JButton("OK");
@@ -118,8 +118,8 @@ public class InterfacePotenciaFundamental {
 		
 		
 		//Corrente
-		labelCorrente = new JLabel("Corrente");
-		labelAngCorrente = new JLabel("Angulo Fase");
+		labelCorrente = new JLabel("Corrente:");
+		labelAngCorrente = new JLabel("Angulo Fase:");
 		textCorrente = new JTextField();
 		textAnguloCorrente = new JTextField();
 		JButton okCorrente = new JButton("OK");
@@ -137,10 +137,10 @@ public class InterfacePotenciaFundamental {
 		painelCorrente.add(okCorrente);
 		
 		//Saídas
-		labelPotAtiva = new JLabel("Potência Ativa");
-		labelPotReativa = new JLabel("Potência Reativa");
-		labelPotAparente = new JLabel("Potência Aparente");
-		labelFatorPot = new JLabel("Fator de Potência");
+		labelPotAtiva = new JLabel("Potência Ativa:");
+		labelPotReativa = new JLabel("Potência Reativa:");
+		labelPotAparente = new JLabel("Potência Aparente:");
+		labelFatorPot = new JLabel("Fator de Potência:");
 		textPotAtiva = new JTextField();
 		textPotReativa = new JTextField();
 		textPotAparente = new JTextField();

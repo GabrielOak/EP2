@@ -1,6 +1,6 @@
 package view;
 
-import controller.Grafico;
+import controller.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -41,6 +41,8 @@ public class InterfacePotenciaFundamental {
 	JTextField textFatorPot;
 	
 	Grafico graficoTensao;
+	Grafico graficoCorrente;
+	Grafico graficoPotInst;
 	
 	public InterfacePotenciaFundamental(){
 		preparaInterface();
@@ -75,7 +77,7 @@ public class InterfacePotenciaFundamental {
 		
 		trianguloPot = new JPanel(null);
 		trianguloPot.setBounds(630, 355, 400, 330);
-		trianguloPot.setBorder(BorderFactory.createTitledBorder("Triângulo Potências"));
+		trianguloPot.setBorder(BorderFactory.createTitledBorder("Triângulo de Potências"));
 		
 		painelGrafico = new JPanel(null);
 		painelGrafico.setBounds(15, 15, 600, 500);
@@ -164,20 +166,37 @@ public class InterfacePotenciaFundamental {
 		
 		//Gráficos
 		ArrayList<Double> listaGraficoTensao = new ArrayList<>();
+		ArrayList<Double> lista2 = new ArrayList<>();
+		ArrayList<Double> lista = new ArrayList<>();
 		
 		for(int t=0; t<100; t++) {
-			listaGraficoTensao.add(220 * Math.cos(Math.toRadians(((2* Math.PI * 60) * t + 0))));
+			listaGraficoTensao.add((double) 0);//220 * Math.cos(Math.toRadians(((2* Math.PI * 60) * t + 0))));
+			lista.add((double)0);//39 * Math.sin(Math.toRadians(((2* Math.PI * 60) * t + 35))));
+			lista2.add(listaGraficoTensao.get(t) * lista.get(t));
 		}
 		
 		graficoTensao = new Grafico(listaGraficoTensao);
+		graficoCorrente = new Grafico(lista);
+		graficoPotInst = new Grafico(lista2);
 		
-		graficoTensao.setBounds(25, 25, 550, 160);
+		graficoTensao.setBounds(15, 25, 550, 160);
+		graficoCorrente.setBounds(15, 180, 550, 160);
+		graficoPotInst.setBounds(15, 350, 550, 160);
 		
 		painelGrafico.add(graficoTensao);
+		painelGrafico.add(graficoCorrente);
+		painelGrafico.add(graficoPotInst);
+		
+		//Triângulo de Potência
+		 TrianguloPotencia triangulo = new TrianguloPotencia(-2,0);
+	     triangulo.setBounds(60,35,280,280);
+	     
+	     trianguloPot.add(triangulo);
+		
 	}
 	
 	public static void main(String[] args) {
-		InterfacePotenciaFundamental interfacea = new InterfacePotenciaFundamental();
+	InterfacePotenciaFundamental interfacea = new InterfacePotenciaFundamental();
 	}
 }
 	

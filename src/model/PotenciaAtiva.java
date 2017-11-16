@@ -8,9 +8,11 @@ public class PotenciaAtiva extends Potencia{
 		
 	}
 	
-	public PotenciaAtiva(int tensao, int corrente, int anguloFaseTensao, int anguloFaseCorrente) {
+	public double calcularPotenciaAtiva(int tensao, int corrente, int anguloFaseTensao, int anguloFaseCorrente) {
 		
-		potenciaAtiva = (float) corrente * tensao * (Math.cos(Math.toRadians(anguloFaseTensao-anguloFaseCorrente)));
+		potenciaAtiva =  corrente * tensao * (Math.cos(Math.toRadians(anguloFaseTensao-anguloFaseCorrente)));
+		
+		return potenciaAtiva;
 	}
 	
 	public double getPotenciaAtiva() {

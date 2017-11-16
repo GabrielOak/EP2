@@ -7,9 +7,11 @@ public class PotenciaAparente {
 		
 	}
 	
-	public PotenciaAparente(int tensao, int corrente) {
+	public float calcularPotenciaAparente(int tensao, int corrente) {
 		
 		potenciaAparente = tensao * corrente;
+		
+		return potenciaAparente;
 	}
 	
 	public float getPotenciaAparente() {

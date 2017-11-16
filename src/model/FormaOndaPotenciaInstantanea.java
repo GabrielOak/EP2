@@ -12,14 +12,13 @@ public class FormaOndaPotenciaInstantanea extends FormaOnda{
 	ArrayList<Double> listaFormaOndaPotInst = new ArrayList<Double>();
 	
 	public FormaOndaPotenciaInstantanea() {
-		ondaTensao.passarListaTensao(listaTensao);
-		ondaCorrente.passarListaCorrente(listaCorrente);
 	}
 	
-	public void calculaPotenciaInsatantanea() {
+	public ArrayList <Double> calculaPotenciaInsatantanea(int valorTensao, int anguloTensao, int valorCorrente,  int anguloCorrente) {
 		for(int i=0; i<0; i++) {
-			listaFormaOndaPotInst.add(listaTensao.get(i)*listaCorrente.get(i));
+			listaFormaOndaPotInst.add((valorTensao * Math.cos(Math.toRadians(frequenciaAngular * i * anguloTensao)))*valorCorrente * Math.cos(Math.toRadians(frequenciaAngular * i * anguloCorrente))) ;
 		}
+		return listaFormaOndaPotInst;
 	}
 	
 	public void passarListaTensao(ArrayList<Double> lista) {

@@ -12,10 +12,13 @@ public class FormaOndaFundamental extends FormaOnda{
 		
 	}
 	
-	public void calculaOndaFundamental(int valorTensao, int anguloTensao, float frequenciaAngular) {
+	public void calculaOndaFundamental(int valorTensao, int valorAnguloTensao, float frequenciaAngular) {
+		
+		tensao.setTensao(valorTensao);
+		anguloTensao.setAnguloFaseTensao(valorAnguloTensao);
 		
 		for(int t=0; t<10; t++) {
-			listaFormaOndaFundamental.add(valorTensao * Math.cos(Math.toRadians(frequenciaAngular * t * anguloTensao)));
+			listaFormaOndaFundamental.add(valorTensao * Math.cos(Math.toRadians(frequenciaAngular * t * valorAnguloTensao)));
 		}
 	}
 	public void passarListaOndaFundamental(ArrayList<Double> lista) {

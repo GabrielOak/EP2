@@ -12,12 +12,14 @@ public class FormaOndaTensao extends FormaOnda{
 	
 	}
 	
-	public void calculaFormaOndaTensao(int valorTensao, float frequenciaAngular, int anguloTensao) {
+	public ArrayList<Double> calculaFormaOndaTensao(int valorTensao, float frequenciaAngular, int anguloTensao) {
 		
-		for(int t=0; t<10; t++) {
+		for(int t=0; t<100; t++) {
 			
 			listaFormaOndaTensao.add(valorTensao * Math.cos(Math.toRadians(frequenciaAngular * t * anguloTensao)));
 		}
+		
+		return listaFormaOndaTensao;
 	}
 	
 	public void passarListaTensao(ArrayList<Double> lista) {

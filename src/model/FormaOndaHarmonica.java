@@ -13,6 +13,18 @@ public class FormaOndaHarmonica {
 		
 	}
 	
+	public int getNumHarmonicos() {
+		return numHarmonicos;
+	}
+
+
+
+	public void setNumHarmonicos(int numHarmonicos) {
+		this.numHarmonicos = numHarmonicos;
+	}
+
+
+
 	public void calculaOndaHarmonica(int valorTensao, int numHarmonicos, float frequenciaAngular, int anguloFaseHarmonico) {
 		for (int t=0; t<10; t++) {
 			listaFormaOndaHarmonica.add(valorTensao * Math.cos(Math.toRadians((numHarmonicos * frequenciaAngular * t) + anguloFaseHarmonico)));

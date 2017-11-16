@@ -8,9 +8,11 @@ public class PotenciaReativa extends Potencia{
 		
 	}
 	
-	public PotenciaReativa(int tensao, int corrente, int anguloFaseTensao, int anguloFaseCorrente) {
+	public double calcularPotenciaReativa(int tensao, int corrente, int anguloFaseTensao, int anguloFaseCorrente) {
 		
-		potenciaReativa = (float) tensao * corrente * (Math.sin(Math.toRadians(anguloFaseTensao-anguloFaseCorrente)));
+		potenciaReativa =  tensao * corrente * Math.sin(Math.toRadians(anguloFaseTensao-anguloFaseCorrente));
+		
+		return potenciaReativa;
 	}
 	
 	public double getPotenciaReativa() {

@@ -22,8 +22,8 @@ import javax.swing.JPanel;
  */
 public class Grafico extends JPanel {
 
-    private int padding = 25;
-    private int labelPadding = 25;
+    private int padding = 15;
+    private int labelPadding = 15;
     private Color lineColor = new Color(44, 102, 230, 180);
     private Color pointColor = new Color(100, 100, 100, 180);
     private Color gridColor = new Color(200, 200, 200, 200);
@@ -31,9 +31,11 @@ public class Grafico extends JPanel {
     private int pointWidth = 0;
     private int numberYDivisions = 2;
     private List<Double> scores;
+    private boolean ajuste;
 
-    public Grafico(List<Double> scores) {
+    public Grafico(List<Double> scores, boolean ajuste) {
         this.scores = scores;
+        this.ajuste = ajuste;
     }
 
     @Override
@@ -81,11 +83,11 @@ public class Grafico extends JPanel {
                 int x1 = x0;
                 int y0 = getHeight() - padding - labelPadding;
                 int y1 = y0 - pointWidth;
-                if ((i % ((int) ((scores.size() / 20.0)) + 1)) == 0) {
+                if ((i % ((int) ((scores.size() / 4.0)) + 1)) == 0) {
                     g2.setColor(gridColor);
                     g2.drawLine(x0, getHeight() - padding - labelPadding - 1 - pointWidth, x1, padding);
                     g2.setColor(Color.BLACK);
-                    String xLabel = i + "";
+                    String xLabel = i/1571 + "";
                     FontMetrics metrics = g2.getFontMetrics();
                     int labelWidth = metrics.stringWidth(xLabel);
                    // g2.drawString(xLabel, x0 - labelWidth / 2, y0 + metrics.getHeight() + 3);
@@ -97,6 +99,8 @@ public class Grafico extends JPanel {
         // create x and y axes 
         g2.drawLine(padding + labelPadding, getHeight() - padding - labelPadding, padding + labelPadding, padding); // y axi
         g2.drawLine(padding + labelPadding, getHeight() - padding - labelPadding, getWidth() - padding, getHeight() - padding - labelPadding); // x axi
+        g2.drawLine(getWidth() - padding, getHeight() - padding - labelPadding, getWidth() - padding, padding);
+        g2.drawLine(padding + labelPadding , padding , getWidth() - padding, padding );
 
         Stroke oldStroke = g2.getStroke();
         g2.setColor(lineColor);
@@ -114,15 +118,26 @@ public class Grafico extends JPanel {
     private double getMinScore() {
         double minScore = Double.MAX_VALUE;
         for (Double score : scores) {
-            minScore = Math.min(minScore, score);
+            if(ajuste == false){
+                minScore = Math.min(-220, score);
         }
+            if(ajuste== true){
+                minScore = Math.min(minScore, score);            
+            }
+        }
+        
         return minScore;
     }
 
     private double getMaxScore() {
         double maxScore = Double.MIN_VALUE;
         for (Double score : scores) {
-            maxScore = Math.max(maxScore, score);
+            if(ajuste == false){
+                maxScore = Math.max(220, score);
+        }
+            else if (ajuste== true){
+                maxScore = Math.max(maxScore, score);
+            }
         }
         return maxScore;
     }

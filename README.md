@@ -1,8 +1,8 @@
 # EP 2 
 
-** Aluno: Gabriel de Jesus Carvalho - 16/120918**
+**Aluno: Gabriel de Jesus Carvalho - 16/120918**
 
-#Instruções de Uso
+# Instruções de Uso
 
 O programa foi feito no Eclipse Oxygen.
 

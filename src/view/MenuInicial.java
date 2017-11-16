@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controller.AcoesMenuInicial;
+
 public class MenuInicial {
 
 	JFrame menuInicial;
@@ -48,17 +50,18 @@ public class MenuInicial {
 		
 		JButton fluxoPotButton = new JButton("Fluxo de Potência");
 		fluxoPotButton.setBounds(20, 130, 200, 50);
+		fluxoPotButton.setActionCommand("okFluxoPotencia");
+		fluxoPotButton.addActionListener(new AcoesMenuInicial(menuInicial));
 		
 		JButton distorcaoHarButton = new JButton("Distorção Harmônica");
 		distorcaoHarButton.setBounds(265, 130, 200, 50);
+		distorcaoHarButton.setActionCommand("okDistorcaoHarmonica");
+		distorcaoHarButton.addActionListener(new AcoesMenuInicial(menuInicial));
 		
 		painelBotoes.add(labelSimulacao);
 		painelBotoes.add(fluxoPotButton);
 		painelBotoes.add(distorcaoHarButton);
 	}
 	
-	public static void main(String[] args) {
-		MenuInicial menu = new MenuInicial();
-	}
 	
 }

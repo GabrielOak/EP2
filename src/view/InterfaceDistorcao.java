@@ -206,12 +206,12 @@ public class InterfaceDistorcao {
 		ArrayList<Double> lista6 = new ArrayList<>();
 	
 		
-		Grafico grafico = new Grafico(lista);
-		Grafico grafico2 = new Grafico(lista2);
-		Grafico grafico3 = new Grafico(lista3);
-		Grafico grafico4 = new Grafico(lista4);
-		Grafico grafico5 = new Grafico(lista5);
-		Grafico grafico6 = new Grafico(lista6);
+		Grafico grafico = new Grafico(lista, false);
+		Grafico grafico2 = new Grafico(lista2, false);
+		Grafico grafico3 = new Grafico(lista3, false);
+		Grafico grafico4 = new Grafico(lista4, false);
+		Grafico grafico5 = new Grafico(lista5, false);
+		Grafico grafico6 = new Grafico(lista6, false);
 		
 		grafico.setBounds(5, 95, 380, 140);
 		grafico2.setBounds(5, 280, 380, 140);
@@ -289,7 +289,7 @@ public class InterfaceDistorcao {
 		
 		ArrayList<Double> listaCompFundamental = new ArrayList<>();
 		
-		Grafico graficoCompFundamental = new Grafico(listaCompFundamental);
+		Grafico graficoCompFundamental = new Grafico(listaCompFundamental, false);
 		graficoCompFundamental.setBounds(15, 30, 390, 150);
 		
 		
@@ -315,7 +315,7 @@ public class InterfaceDistorcao {
 		
 		ArrayList<Double> listaOndaResultante = new ArrayList<>();
 		
-		Grafico ondaResultante = new Grafico(listaOndaResultante);
+		Grafico ondaResultante = new Grafico(listaOndaResultante, true);
 		
 		ondaResultante.setBounds(15, 80, 390, 170);
 		
@@ -326,7 +326,7 @@ public class InterfaceDistorcao {
 		
 	}
 	
-	public static void main(String[] args) {
-		InterfaceDistorcao inter = new InterfaceDistorcao();
-	}
+	//public static void main(String[] args) {
+	//	InterfaceDistorcao inter = new InterfaceDistorcao();
+	//}
 }

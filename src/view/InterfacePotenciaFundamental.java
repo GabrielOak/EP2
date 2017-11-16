@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class InterfacePotenciaFundamental {
-	JFrame interfaceII;
+	JFrame mainFrame;
 	
 	JPanel painelTensao;
 	JPanel painelCorrente;
@@ -44,19 +44,20 @@ public class InterfacePotenciaFundamental {
 	Grafico graficoCorrente;
 	Grafico graficoPotInst;
 	
+	
 	public InterfacePotenciaFundamental(){
 		preparaInterface();
 	}
 	
 	private void preparaInterface() {
 		
-		interfaceII = new JFrame("Fluxo de Potência Fundamenta");
-		interfaceII.setSize(1045, 700);
-		interfaceII.setLocation(0,0);
-		interfaceII.setLayout(null);
-		interfaceII.setResizable(false);
+		mainFrame = new JFrame("Fluxo de Potência Fundamenta");
+		mainFrame.setSize(1045, 700);
+		mainFrame.setLocation(0,0);
+		mainFrame.setLayout(null);
+		mainFrame.setResizable(false);
 		
-		interfaceII.addWindowListener(new WindowAdapter() {
+		mainFrame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent windowEvent) {
 				System.exit(0);
 			}
@@ -83,15 +84,15 @@ public class InterfacePotenciaFundamental {
 		painelGrafico.setBounds(15, 15, 600, 500);
 		painelGrafico.setBorder(BorderFactory.createTitledBorder("Gráficos"));
 		
-		interfaceII.add(painelTensao);
-		interfaceII.add(painelCorrente);
-		interfaceII.add(painelGrafico);
-		interfaceII.add(painelSaidas);
-		interfaceII.add(trianguloPot);
+		mainFrame.add(painelTensao);
+		mainFrame.add(painelCorrente);
+		mainFrame.add(painelGrafico);
+		mainFrame.add(painelSaidas);
+		mainFrame.add(trianguloPot);
 		
 		preparaPainel();
 		
-		interfaceII.setVisible(true);
+		mainFrame.setVisible(true);
 		
 	}
 	
@@ -100,8 +101,8 @@ public class InterfacePotenciaFundamental {
 		//Tensão
 		labelTensao = new JLabel("Tensão:");
 		labelAngTensao = new JLabel("Angulo Fase:");
-		textTensao = new JTextField();
-		textAnguloTensao = new JTextField();
+		textTensao = new JTextField("0");
+		textAnguloTensao = new JTextField("0");
 		JButton okTensao = new JButton("OK");
 		
 		labelTensao.setBounds(15, 30, 100, 20);
@@ -120,9 +121,10 @@ public class InterfacePotenciaFundamental {
 		//Corrente
 		labelCorrente = new JLabel("Corrente:");
 		labelAngCorrente = new JLabel("Angulo Fase:");
-		textCorrente = new JTextField();
-		textAnguloCorrente = new JTextField();
+		textCorrente = new JTextField("0");
+		textAnguloCorrente = new JTextField("0");
 		JButton okCorrente = new JButton("OK");
+		
 		
 		labelCorrente.setBounds(15, 30, 100, 20);
 		labelAngCorrente.setBounds(15, 65, 100, 20);
@@ -141,19 +143,19 @@ public class InterfacePotenciaFundamental {
 		labelPotReativa = new JLabel("Potência Reativa:");
 		labelPotAparente = new JLabel("Potência Aparente:");
 		labelFatorPot = new JLabel("Fator de Potência:");
-		textPotAtiva = new JTextField();
-		textPotReativa = new JTextField();
-		textPotAparente = new JTextField();
-		textFatorPot = new JTextField();
+		textPotAtiva = new JTextField("0");
+		textPotReativa = new JTextField("0");
+		textPotAparente = new JTextField("0");
+		textFatorPot = new JTextField("0");
 		
-		labelPotAtiva.setBounds(15, 50, 150, 20);
-		labelPotReativa.setBounds(15, 85, 150, 20);
-		labelPotAparente.setBounds(300, 50, 150, 20);
-		labelFatorPot.setBounds(300, 85, 150, 20);
-		textPotAtiva.setBounds(165, 50, 100, 20);
-		textPotReativa.setBounds(165, 85, 100, 20);
-		textPotAparente.setBounds(460, 50, 100, 20);
-		textFatorPot.setBounds(460, 85, 100, 20);
+		labelPotAtiva.setBounds(15, 20, 150, 20);
+		labelPotReativa.setBounds(15, 55, 150, 20);
+		labelPotAparente.setBounds(300, 20, 150, 20);
+		labelFatorPot.setBounds(300, 55, 150, 20);
+		textPotAtiva.setBounds(165, 20, 100, 20);
+		textPotReativa.setBounds(165, 55, 100, 20);
+		textPotAparente.setBounds(460, 20, 100, 20);
+		textFatorPot.setBounds(460, 55, 100, 20);
 		
 		painelSaidas.add(labelPotAtiva);
 		painelSaidas.add(labelPotReativa);
@@ -169,15 +171,9 @@ public class InterfacePotenciaFundamental {
 		ArrayList<Double> lista2 = new ArrayList<>();
 		ArrayList<Double> lista = new ArrayList<>();
 		
-		for(int t=0; t<100; t++) {
-			listaGraficoTensao.add((double) 0);//220 * Math.cos(Math.toRadians(((2* Math.PI * 60) * t + 0))));
-			lista.add((double)0);//39 * Math.sin(Math.toRadians(((2* Math.PI * 60) * t + 35))));
-			lista2.add(listaGraficoTensao.get(t) * lista.get(t));
-		}
-		
-		graficoTensao = new Grafico(listaGraficoTensao);
-		graficoCorrente = new Grafico(lista);
-		graficoPotInst = new Grafico(lista2);
+		graficoTensao = new Grafico(listaGraficoTensao, false);
+		graficoCorrente = new Grafico(lista, false);
+		graficoPotInst = new Grafico(lista2, true);
 		
 		graficoTensao.setBounds(15, 25, 550, 160);
 		graficoCorrente.setBounds(15, 180, 550, 160);
@@ -192,7 +188,26 @@ public class InterfacePotenciaFundamental {
 	     triangulo.setBounds(60,35,280,280);
 	     
 	     trianguloPot.add(triangulo);
-		
+	     
+	     JButton okSaidas = new JButton("Ok");
+	     okSaidas.setBounds(500, 110, 70, 30);
+	     painelSaidas.add(okSaidas);
+	     
+	     JButton voltaMenu = new JButton("Voltar");
+	     voltaMenu.setBounds(300, 15, 80, 30);
+	     painelTensao.add(voltaMenu);
+	     
+	     voltaMenu.setActionCommand("Voltar");
+	     voltaMenu.addActionListener(new AcoesInterfacePotenciaFundamental(mainFrame));
+	     
+	     okCorrente.setActionCommand("Corrente");
+	     okCorrente.addActionListener(new AcoesInterfacePotenciaFundamental(graficoCorrente, textCorrente, textAnguloCorrente));
+	     
+	     okTensao.setActionCommand("Tensao");
+	     okTensao.addActionListener(new AcoesInterfacePotenciaFundamental(textTensao, textAnguloTensao, graficoTensao));
+	     
+	     okSaidas.setActionCommand("Saidas");
+	     okSaidas.addActionListener(new AcoesInterfacePotenciaFundamental(textTensao, textCorrente, textAnguloTensao, textAnguloCorrente, textPotAtiva, textPotReativa, textPotAparente, textFatorPot,  graficoPotInst, triangulo));
 	}
 	
 	public static void main(String[] args) {

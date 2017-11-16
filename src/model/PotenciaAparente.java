@@ -1,6 +1,6 @@
 package model;
 
-public class PotenciaAparente {
+public class PotenciaAparente extends Potencia{
 	float potenciaAparente;
 	
 	public PotenciaAparente() {

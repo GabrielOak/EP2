@@ -1,6 +1,6 @@
 package model;
 
-public class FatorPotencia {
+public class FatorPotencia extends Potencia{
 
 	double fatorPotencia;
 	
